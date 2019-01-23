@@ -1,7 +1,9 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
 http_archive(
     name = "build_bazel_rules_typescript",
-    url = "https://github.com/bazelbuild/rules_typescript/archive/0.20.3.zip",
-    strip_prefix = "rules_typescript-0.20.3",
+    url = "https://github.com/bazelbuild/rules_typescript/archive/0.22.1.zip",
+    strip_prefix = "rules_typescript-0.22.1",
 )
 
 # Fetch transitive Bazel dependencies of build_bazel_rules_typescript
@@ -21,9 +23,6 @@ load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install"
 node_repositories()
 
 # Setup Bazel managed npm dependencies with the `yarn_install` rule.
-# The name of this rule should be set to `npm` so that `ts_library` and `ts_web_test_suite`
-# can find your npm dependencies by default in the `@npm` workspace. You may
-# also use the `npm_install` rule with a `package-lock.json` file if you prefer.
 # See https://github.com/bazelbuild/rules_nodejs#dependencies for more info.
 yarn_install(
   name = "npm",
@@ -35,11 +34,3 @@ yarn_install(
 load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
 go_rules_dependencies()
 go_register_toolchains()
-
-# Bazel-managed npm dependencies
-load("@build_bazel_rules_nodejs//:defs.bzl", "npm_install")
-npm_install(
-    name = "npm",
-    package_json = "//:package.json",
-    package_lock_json = "//:package-lock.json",
-)

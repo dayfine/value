@@ -1,6 +1,6 @@
 {
   "name": "value_frontend",
-  "version": "1.13.0",
+  "version": "1.0.0",
   "description": "frontend repository for value, a fundamental analysis app",
   "main": "index.js",
   "repository": {
@@ -26,6 +26,6 @@
   "scripts": {
     "build": "bazel build //app",
     "start": "bazel build //app:devserver",
-    "install": "bazel run @nodejs//:yarn"
+    "bazel-install": "bazel run @nodejs//:yarn"
   }
 }
