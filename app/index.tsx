@@ -4,9 +4,14 @@ import * as ReactDOM from 'react-dom';
 import App from './app';
 import Hello from './Hello'
 
-console.log('hi')
-console.log(React)
+declare let module: any
+
 ReactDOM.render(
   <Hello compiler="TypeScript" framework="React" />,
   document.getElementById('root') as HTMLElement
 );
+
+
+if (module.hot) {
+   module.hot.accept();
+}
