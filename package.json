@@ -15,8 +15,8 @@
   "homepage": "https://github.com/dayfine/value#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "react": "^16.7.0-alpha.0",
-    "react-dom": "^16.7.0-alpha.0"
+    "react": "16.7.0-alpha.0",
+    "react-dom": "16.7.0-alpha.0"
   },
   "devDependencies": {
     "@bazel/typescript": "0.22.1",
@@ -40,6 +40,7 @@
   },
   "scripts": {
     "build": "./node_modules/.bin/webpack",
-    "start": "npm run build && node server.js"
+    "start": "npm run build && node server.js",
+    "tsfix": "npx tslint --fix 'app/**/*{.ts,.tsx}'"
   }
 }

@@ -5,6 +5,7 @@
     ],
     "rules": {
         "indent": [true, "spaces", 4],
+        "jsx-no-lambda": false,
         "semicolon": [true, "never"]
     },
     "linterOptions": {
