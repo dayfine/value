@@ -1,9 +1,0 @@
-import * as React from 'react';
-
-export default class App extends React.Component {
-	render() : any {
-		return (
-	      <h2>Hello World!</h2>
-	    );
-	}
-}
