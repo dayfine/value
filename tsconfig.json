@@ -10,7 +10,6 @@
         ],
         "module": "esnext",
         "moduleResolution": "node",
-        "noImplicitAny": true,
         "outDir": "./dist/",
         "removeComments": true,
         "sourceMap": true,

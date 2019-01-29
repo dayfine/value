@@ -1,12 +1,12 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-import Hello from "./Hello"
+import App from "./App"
 
 declare let module: any
 
 ReactDOM.render(
-    <Hello compiler="TypeScript" framework="React" />,
+    <App />,
     document.getElementById("root") as HTMLElement,
 )
 

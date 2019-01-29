@@ -1,5 +1,8 @@
 bazel-*
 dist/
+secrets/
+secrets.yml
+env.yml
 
 # Logs
 logs
