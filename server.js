@@ -1,6 +1,11 @@
 const path = require('path')
+const fs = require('fs')
+
+const chalk = require('chalk')
 const express = require('express')
 const webpack = require('webpack')
+const yaml = require('js-yaml')
+
 const webpackConfig = require('./webpack.config.js')
 
 const app = express()
@@ -17,5 +22,13 @@ app.use(require('webpack-dev-middleware')(compiler, {
     stats: { colors: true },
 }))
 app.use(require('webpack-hot-middleware')(compiler))
+
+try {
+    const config = yaml.safeLoad(fs.readFileSync('secrets.yml', 'utf8'))
+    const indentedJson = JSON.stringify(config, null, 4)
+    console.log(chalk.blue(indentedJson))
+} catch (e) {
+    console.log(chalk.red(e))
+}
 
 app.use(express.static(path.resolve(__dirname, 'dist')))
